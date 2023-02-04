@@ -45,8 +45,8 @@ public class ToolDimensionalVolume extends Tool {
     public static void registerCommand(CommandDispatcher<FabricClientCommandSource> dispatcher, CommandRegistryAccess registryAccess) {
         dispatcher.register(literal("tdimensional_volume")
                 .then(literal("toggle").executes(ctx -> toggleCommand()))
-                .then(literal("set").executes(ctx -> setCurrentCommand(ctx)))
-                .then(literal("reset").executes(ctx -> resetCurrentCommand(ctx))));
+                .then(literal("set").executes(ToolDimensionalVolume::setCurrentCommand))
+                .then(literal("reset").executes(ToolDimensionalVolume::resetCurrentCommand)));
     }
 
     private static int toggleCommand() {

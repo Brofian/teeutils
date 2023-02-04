@@ -4,17 +4,13 @@ import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.stream.JsonReader;
-import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.logging.LogUtils;
 import de.teawork.mcutils.tools.ToolDimensionalVolume;
 import de.teawork.mcutils.tools.ToolRepair;
-import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.command.CommandRegistryAccess;
 import org.slf4j.Logger;
-
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
@@ -22,7 +18,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayDeque;
 import java.util.HashMap;
-import java.util.Map;
 
 public class ToolManager {
 
