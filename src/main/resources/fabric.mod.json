@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "teeutils",
+  "version": "0.2.0",
+
+  "name": "Tee Utilities",
+  "description": "This mod adds various utilities",
+  "authors": [
+    "Teekeks"
+  ],
+  "contact": {
+    "homepage": "https://teawork.de",
+    "sources": "https://github.com/Teekeks/teeutils"
+  },
+
+  "license": "mit",
+  "icon": "assets/teeutils/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "de.teawork.mcutils.McUtilsClient"
+    ]
+  },
+  "mixins": [
+    "teeutils.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.8",
+    "fabric": "*",
+    "minecraft": "~1.19",
+    "java": ">=17",
+    "fabric-key-binding-api-v1": "*"
+  },
+  "suggests": {
+  }
+}
