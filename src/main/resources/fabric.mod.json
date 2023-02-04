@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "de.teawork.mcutils.McUtilsClient"
+      "de.teawork.teeutils.TeeUtilsClient"
     ]
   },
   "mixins": [

@@ -1,4 +1,4 @@
-package de.teawork.mcutils.tools;
+package de.teawork.teeutils.tools;
 
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
@@ -8,7 +8,8 @@ import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.logging.LogUtils;
-import de.teawork.mcutils.util.Tool;
+import de.teawork.teeutils.Reference;
+import de.teawork.teeutils.util.Tool;
 import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.*;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.fabricmc.loader.api.FabricLoader;
@@ -17,7 +18,6 @@ import net.minecraft.client.world.ClientWorld;
 import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
-import org.apache.commons.lang3.ObjectUtils;
 import org.slf4j.Logger;
 
 import java.io.IOException;
@@ -26,13 +26,12 @@ import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
-import java.util.concurrent.TimeUnit;
 
 public class ToolDimensionalVolume extends Tool {
 
     public static ToolDimensionalVolume INSTANCE = new ToolDimensionalVolume();
 
-    private static final Path STORE_PATH = FabricLoader.getInstance().getConfigDir().resolve("teeutils").resolve("dimensional_volume.json");
+    private static final Path STORE_PATH = FabricLoader.getInstance().getConfigDir().resolve(Reference.MOD_ID).resolve("dimensional_volume.json");
     private static final Logger LOGGER = LogUtils.getLogger();
 
     private static final HashMap<String, HashMap<String, Float>> config = loadConfig();

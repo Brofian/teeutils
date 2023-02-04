@@ -1,8 +1,8 @@
-package de.teawork.mcutils.tools;
+package de.teawork.teeutils.tools;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
-import de.teawork.mcutils.util.Tool;
+import de.teawork.teeutils.util.Tool;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;

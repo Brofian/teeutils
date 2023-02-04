@@ -1,6 +1,6 @@
-package de.teawork.mcutils.mixins;
+package de.teawork.teeutils.mixins;
 
-import de.teawork.mcutils.tools.ToolDimensionalVolume;
+import de.teawork.teeutils.tools.ToolDimensionalVolume;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.world.ClientWorld;
 import org.spongepowered.asm.mixin.Mixin;

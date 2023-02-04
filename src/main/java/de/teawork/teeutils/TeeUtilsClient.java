@@ -1,10 +1,10 @@
-package de.teawork.mcutils;
+package de.teawork.teeutils;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.logging.LogUtils;
-import de.teawork.mcutils.tools.ToolDimensionalVolume;
-import de.teawork.mcutils.tools.ToolRepair;
-import de.teawork.mcutils.util.ToolManager;
+import de.teawork.teeutils.tools.ToolDimensionalVolume;
+import de.teawork.teeutils.tools.ToolRepair;
+import de.teawork.teeutils.util.ToolManager;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
@@ -17,7 +17,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 
-public class McUtilsClient implements ClientModInitializer {
+public class TeeUtilsClient implements ClientModInitializer {
 
     private ToolManager manager = ToolManager.INSTANCE;
 
@@ -26,7 +26,7 @@ public class McUtilsClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        ClientCommandRegistrationCallback.EVENT.register(McUtilsClient::registerCommands);
+        ClientCommandRegistrationCallback.EVENT.register(TeeUtilsClient::registerCommands);
 
         configDir = FabricLoader.getInstance().getConfigDir().resolve("teeutils");
         try {

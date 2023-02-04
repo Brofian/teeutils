@@ -1,12 +1,13 @@
-package de.teawork.mcutils.util;
+package de.teawork.teeutils.util;
 
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.stream.JsonReader;
 import com.mojang.logging.LogUtils;
-import de.teawork.mcutils.tools.ToolDimensionalVolume;
-import de.teawork.mcutils.tools.ToolRepair;
+import de.teawork.teeutils.Reference;
+import de.teawork.teeutils.tools.ToolDimensionalVolume;
+import de.teawork.teeutils.tools.ToolRepair;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
@@ -25,7 +26,7 @@ public class ToolManager {
 
     public ArrayDeque<Tool> tools = new ArrayDeque<>();
 
-    private static final Path STORE_PATH = FabricLoader.getInstance().getConfigDir().resolve("teeutils").resolve("manager.json");
+    private static final Path STORE_PATH = FabricLoader.getInstance().getConfigDir().resolve(Reference.MOD_ID).resolve("manager.json");
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public ToolManager() {

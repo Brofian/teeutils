@@ -1,4 +1,4 @@
-package de.teawork.mcutils.util;
+package de.teawork.teeutils.util;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
