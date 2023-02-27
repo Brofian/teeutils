@@ -106,7 +106,8 @@ public class ToolDimensionalVolume extends Tool {
         if (settings == null) return;
         MinecraftClient client = MinecraftClient.getInstance();
         for (SoundCategory cat: SoundCategory.values()) {
-            client.options.setSoundVolume(cat, settings.get(cat.getName()));
+            client.options.getSoundVolumeOption(cat).setValue((double)settings.get(cat.getName()));
+
         }
         if (client.player == null) return;
         client.player.sendMessage(Text.literal("§7" + getName() + ": §2Updated Volume§r"), false);

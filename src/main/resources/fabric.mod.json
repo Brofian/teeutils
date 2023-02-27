@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "teeutils",
-  "version": "0.2.0",
+  "version": "0.2.1",
 
   "name": "Tee Utilities",
   "description": "This mod adds various utilities",
@@ -27,9 +27,9 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.14.8",
-    "fabric": "*",
-    "minecraft": "~1.19",
+    "fabricloader": ">=0.14.14",
+    "fabric-api": "*",
+    "minecraft": "~1.19.3",
     "java": ">=17",
     "fabric-key-binding-api-v1": "*"
   },
