@@ -32,8 +32,4 @@ public class ToolBucketProtect extends Tool {
         return Command.SINGLE_SUCCESS;
     }
 
-    public static int getNumberOfFreeSlots(PlayerEntity user) {
-
-        return 0;
-    }
 }

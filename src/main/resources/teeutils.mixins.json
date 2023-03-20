@@ -7,7 +7,7 @@
   ],
   "client": [
     "MixinMinecraftClient",
-    "MixinBucketItem"
+    "MixinClientPlayerInteractionManager"
   ],
   "injectors": {
     "defaultRequire": 1
