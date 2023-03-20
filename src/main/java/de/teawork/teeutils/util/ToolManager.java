@@ -6,6 +6,7 @@ import com.google.gson.JsonSyntaxException;
 import com.google.gson.stream.JsonReader;
 import com.mojang.logging.LogUtils;
 import de.teawork.teeutils.Reference;
+import de.teawork.teeutils.tools.ToolBucketProtect;
 import de.teawork.teeutils.tools.ToolDimensionalVolume;
 import de.teawork.teeutils.tools.ToolRepair;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -32,6 +33,7 @@ public class ToolManager {
     public ToolManager() {
         tools.add(ToolRepair.INSTANCE);
         tools.add(ToolDimensionalVolume.INSTANCE);
+        tools.add(ToolBucketProtect.INSTANCE);
     }
 
     public void registerTools() {

@@ -2,6 +2,7 @@ package de.teawork.teeutils;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.logging.LogUtils;
+import de.teawork.teeutils.tools.ToolBucketProtect;
 import de.teawork.teeutils.tools.ToolDimensionalVolume;
 import de.teawork.teeutils.tools.ToolRepair;
 import de.teawork.teeutils.util.ToolManager;
@@ -43,6 +44,7 @@ public class TeeUtilsClient implements ClientModInitializer {
                                         CommandRegistryAccess registryAccess) {
         ToolRepair.registerCommand(dispatcher, registryAccess);
         ToolDimensionalVolume.registerCommand(dispatcher, registryAccess);
+        ToolBucketProtect.registerCommand(dispatcher, registryAccess);
     }
 
 }

@@ -19,3 +19,10 @@ Will remember the sound settings for the dimension you are in when using `/tdime
 Therefor allows for unique settings in each dimension.
 
 Use `/tdimensional_volume reset` to forget your current settings for the current dimension.
+
+
+## Bucket Protect
+
+Toggle using `/tbucket_protect`
+
+Will prevent you from filling new buckets when there is no space in your inventory for them and you would usually throw them out.
