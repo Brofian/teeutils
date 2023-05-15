@@ -3,7 +3,6 @@ package de.teawork.teeutils.mixins;
 import de.teawork.teeutils.tools.ToolBucketProtect;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.BucketItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.ActionResult;
@@ -28,5 +27,5 @@ public class MixinClientPlayerInteractionManager {
             }
         }
     }
-
 }
+

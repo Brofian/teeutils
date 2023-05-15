@@ -5,6 +5,7 @@ import com.mojang.logging.LogUtils;
 import de.teawork.teeutils.tools.ToolBucketProtect;
 import de.teawork.teeutils.tools.ToolDimensionalVolume;
 import de.teawork.teeutils.tools.ToolRepair;
+import de.teawork.teeutils.tools.ToolTotemRestock;
 import de.teawork.teeutils.util.ToolManager;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
@@ -20,7 +21,7 @@ import java.nio.file.Path;
 
 public class TeeUtilsClient implements ClientModInitializer {
 
-    private ToolManager manager = ToolManager.INSTANCE;
+    private final ToolManager manager = ToolManager.INSTANCE;
 
     public static Path configDir;
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -45,6 +46,7 @@ public class TeeUtilsClient implements ClientModInitializer {
         ToolRepair.registerCommand(dispatcher, registryAccess);
         ToolDimensionalVolume.registerCommand(dispatcher, registryAccess);
         ToolBucketProtect.registerCommand(dispatcher, registryAccess);
+        ToolTotemRestock.registerCommand(dispatcher, registryAccess);
     }
 
 }
