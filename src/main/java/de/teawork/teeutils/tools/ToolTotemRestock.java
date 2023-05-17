@@ -2,6 +2,7 @@ package de.teawork.teeutils.tools;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
+import de.teawork.teeutils.gui.part.PartMenu;
 import de.teawork.teeutils.util.Tool;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
@@ -21,6 +22,13 @@ import net.minecraft.util.Hand;
 public class ToolTotemRestock extends Tool {
 
     public static ToolTotemRestock INSTANCE = new ToolTotemRestock();
+
+    @Override
+    public void addConfigPart(PartMenu menu) {
+        enabledMenu = menu.addEntry("Totem Restock", () -> {
+            ToolTotemRestock.INSTANCE.toggleTool(MinecraftClient.getInstance());
+        });
+    }
 
     @Override
     public String getName() {

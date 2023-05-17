@@ -2,6 +2,7 @@ package de.teawork.teeutils.tools;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
+import de.teawork.teeutils.gui.part.PartMenu;
 import de.teawork.teeutils.util.Tool;
 import de.teawork.teeutils.util.ToolManager;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
@@ -29,6 +30,13 @@ public class ToolRepair extends Tool {
     @Override
     public String getName() {
         return "Repair Automation";
+    }
+
+    @Override
+    public void addConfigPart(PartMenu menu) {
+        enabledMenu = menu.addEntry("Repair Automation", () -> {
+            ToolRepair.INSTANCE.toggleTool(MinecraftClient.getInstance());
+        });
     }
 
     public static void registerCommand(CommandDispatcher<FabricClientCommandSource> dispatcher, CommandRegistryAccess registryAccess) {
@@ -89,6 +97,7 @@ public class ToolRepair extends Tool {
         } else {
             // we are done, all tools repaired -> disable
             isEnabled = false;
+            syncEnabledMenu();
             ToolManager.saveConfig();
             client.player.sendMessage(Text.literal(getName() + ": §5Completed§r"), true);
         }

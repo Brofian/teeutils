@@ -9,6 +9,7 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.logging.LogUtils;
 import de.teawork.teeutils.Reference;
+import de.teawork.teeutils.gui.part.PartMenu;
 import de.teawork.teeutils.util.Tool;
 import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.*;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
@@ -39,6 +40,16 @@ public class ToolDimensionalVolume extends Tool {
     @Override
     public String getName() {
         return "Dimensional Volume";
+    }
+
+    @Override
+    public void addConfigPart(PartMenu menu) {
+        PartMenu pm = menu.addMenuEntry("Dimensional Volume");
+        enabledMenu = pm.addEntry("Enabled", () -> {
+            ToolDimensionalVolume.INSTANCE.toggleTool(MinecraftClient.getInstance());
+        });
+        pm.addEntry("Set for current dimension", () -> {}, false);
+        pm.addEntry("Reset for current dimension", () -> {}, false);
     }
 
     public static void registerCommand(CommandDispatcher<FabricClientCommandSource> dispatcher, CommandRegistryAccess registryAccess) {

@@ -2,6 +2,7 @@ package de.teawork.teeutils.tools;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
+import de.teawork.teeutils.gui.part.PartMenu;
 import de.teawork.teeutils.util.Tool;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
@@ -17,6 +18,13 @@ public class ToolBucketProtect extends Tool {
     @Override
     public String getName() {
         return "Bucket Protect";
+    }
+
+    @Override
+    public void addConfigPart(PartMenu menu) {
+        enabledMenu = menu.addEntry("Bucket Protect", () -> {
+            ToolBucketProtect.INSTANCE.toggleTool(MinecraftClient.getInstance());
+        });
     }
 
     @Override

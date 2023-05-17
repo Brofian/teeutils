@@ -1,6 +1,7 @@
 {
   "key.mcutil.toogle-repair": "Toggle Repair Automation Mode",
-  "key.category.mcutil": "Tee Util Keys",
+  "category.teeutils.main": "Tee Util Keys",
+  "key.teeutils.open_config": "Open config menu",
 
   "commands.dimensional_volume.set.success": "§7Dimensional Volume: §rSuccessfully stored current volume settings for this dimension",
   "commands.dimensional_volume.reset.success": "§7Dimensional Volume: §rSuccessfully removed the current dimension volume settings"
