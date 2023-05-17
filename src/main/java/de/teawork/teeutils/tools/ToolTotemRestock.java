@@ -75,6 +75,6 @@ public class ToolTotemRestock extends Tool {
         if (container == client.player.playerScreenHandler) {
             client.interactionManager.clickSlot(container.syncId, totemSlot, 40, SlotActionType.SWAP, client.player);
         }
-        client.player.sendMessage(Text.literal(getName() + ": §Restocked§r"), true);
+        client.player.sendMessage(Text.literal(getName() + ": §5Restocked§r"), true);
     }
 }
