@@ -31,9 +31,4 @@ public class ToolBucketProtect extends Tool {
     public void register() {
     }
 
-    private static int toggleCommand() {
-        INSTANCE.toggleTool(MinecraftClient.getInstance());
-        return Command.SINGLE_SUCCESS;
-    }
-
 }

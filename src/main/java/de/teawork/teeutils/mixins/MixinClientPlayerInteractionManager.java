@@ -1,5 +1,6 @@
 package de.teawork.teeutils.mixins;
 
+import de.teawork.teeutils.tools.ToolBottleProtect;
 import de.teawork.teeutils.tools.ToolBucketProtect;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.entity.player.PlayerEntity;
@@ -21,6 +22,15 @@ public class MixinClientPlayerInteractionManager {
             ItemStack itemStack = player.getStackInHand(hand);
             // is a bucket and has more than 1 in stack
             if (itemStack.getItem() == Items.BUCKET && itemStack.getCount() > 1) {
+                if (player.getInventory().getEmptySlot() == -1) {
+                    cir.setReturnValue(ActionResult.PASS);
+                }
+            }
+        }
+        if (ToolBottleProtect.INSTANCE.isEnabled) {
+            ItemStack itemStack = player.getStackInHand(hand);
+            // is a bottle and has more than 1 in stack
+            if (itemStack.getItem() == Items.GLASS_BOTTLE && itemStack.getCount() > 1) {
                 if (player.getInventory().getEmptySlot() == -1) {
                     cir.setReturnValue(ActionResult.PASS);
                 }

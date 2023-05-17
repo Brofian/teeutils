@@ -6,10 +6,7 @@ import com.google.gson.JsonSyntaxException;
 import com.google.gson.stream.JsonReader;
 import com.mojang.logging.LogUtils;
 import de.teawork.teeutils.Reference;
-import de.teawork.teeutils.tools.ToolBucketProtect;
-import de.teawork.teeutils.tools.ToolDimensionalVolume;
-import de.teawork.teeutils.tools.ToolRepair;
-import de.teawork.teeutils.tools.ToolTotemRestock;
+import de.teawork.teeutils.tools.*;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
@@ -35,6 +32,7 @@ public class ToolManager {
         tools.add(ToolRepair.INSTANCE);
         tools.add(ToolDimensionalVolume.INSTANCE);
         tools.add(ToolBucketProtect.INSTANCE);
+        tools.add(ToolBottleProtect.INSTANCE);
         tools.add(ToolTotemRestock.INSTANCE);
     }
 
