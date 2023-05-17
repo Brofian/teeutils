@@ -26,7 +26,7 @@ public class ToolTotemRestock extends Tool {
     @Override
     public void addConfigPart(PartMenu menu) {
         enabledMenu = menu.addEntry("Totem Restock", () -> {
-            ToolTotemRestock.INSTANCE.toggleTool(MinecraftClient.getInstance());
+            toggleTool(MinecraftClient.getInstance());
         });
     }
 

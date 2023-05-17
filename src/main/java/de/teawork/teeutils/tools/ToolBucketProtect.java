@@ -23,7 +23,7 @@ public class ToolBucketProtect extends Tool {
     @Override
     public void addConfigPart(PartMenu menu) {
         enabledMenu = menu.addEntry("Bucket Protect", () -> {
-            ToolBucketProtect.INSTANCE.toggleTool(MinecraftClient.getInstance());
+            toggleTool(MinecraftClient.getInstance());
         });
     }
 

@@ -35,7 +35,7 @@ public class ToolRepair extends Tool {
     @Override
     public void addConfigPart(PartMenu menu) {
         enabledMenu = menu.addEntry("Repair Automation", () -> {
-            ToolRepair.INSTANCE.toggleTool(MinecraftClient.getInstance());
+            toggleTool(MinecraftClient.getInstance());
         });
     }
 

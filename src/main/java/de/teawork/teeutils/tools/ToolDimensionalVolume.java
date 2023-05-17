@@ -46,7 +46,7 @@ public class ToolDimensionalVolume extends Tool {
     public void addConfigPart(PartMenu menu) {
         PartMenu pm = menu.addMenuEntry("Dimensional Volume");
         enabledMenu = pm.addEntry("Enabled", () -> {
-            ToolDimensionalVolume.INSTANCE.toggleTool(MinecraftClient.getInstance());
+            toggleTool(MinecraftClient.getInstance());
         });
         pm.addEntry("Set for current dimension", () -> {}, false);
         pm.addEntry("Reset for current dimension", () -> {}, false);
