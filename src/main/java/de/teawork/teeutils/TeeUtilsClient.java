@@ -40,7 +40,7 @@ public class TeeUtilsClient implements ClientModInitializer {
         OPEN_CONFIG = KeyBindingHelper.registerKeyBinding(new KeyBinding(
                 "key.teeutils.open_config",
                 InputUtil.Type.KEYSYM,
-                GLFW.GLFW_KEY_T,
+                GLFW.GLFW_KEY_Z,
                 "category.teeutils.main"
         ));
 
