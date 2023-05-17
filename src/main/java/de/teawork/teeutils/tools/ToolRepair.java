@@ -39,15 +39,6 @@ public class ToolRepair extends Tool {
         });
     }
 
-    public static void registerCommand(CommandDispatcher<FabricClientCommandSource> dispatcher, CommandRegistryAccess registryAccess) {
-        dispatcher.register(ClientCommandManager.literal("trepair").executes(ctx -> toggleCommand()));
-    }
-
-    private static int toggleCommand() {
-        INSTANCE.toggleTool(MinecraftClient.getInstance());
-        return Command.SINGLE_SUCCESS;
-    }
-
     @Override
     public void register() {
         ClientTickEvents.END_CLIENT_TICK.register(this::onTick);

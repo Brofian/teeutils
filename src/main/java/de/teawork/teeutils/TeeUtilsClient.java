@@ -63,10 +63,6 @@ public class TeeUtilsClient implements ClientModInitializer {
 
     public static void registerCommands(CommandDispatcher<FabricClientCommandSource> dispatcher,
                                         CommandRegistryAccess registryAccess) {
-        ToolRepair.registerCommand(dispatcher, registryAccess);
-        ToolDimensionalVolume.registerCommand(dispatcher, registryAccess);
-        ToolBucketProtect.registerCommand(dispatcher, registryAccess);
-        ToolTotemRestock.registerCommand(dispatcher, registryAccess);
     }
 
 }

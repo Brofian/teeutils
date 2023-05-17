@@ -40,15 +40,6 @@ public class ToolTotemRestock extends Tool {
         ClientTickEvents.END_CLIENT_TICK.register(this::onTick);
     }
 
-    public static void registerCommand(CommandDispatcher<FabricClientCommandSource> dispatcher, CommandRegistryAccess registryAccess) {
-        dispatcher.register(ClientCommandManager.literal("ttotem-restock").executes(ctx -> toggleCommand()));
-    }
-
-    private static int toggleCommand() {
-        INSTANCE.toggleTool(MinecraftClient.getInstance());
-        return Command.SINGLE_SUCCESS;
-    }
-
     private int findTotem(ScreenHandler container) {
         for (Slot slot: container.slots) {
             ItemStack stackSlot = slot.getStack();

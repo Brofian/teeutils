@@ -31,10 +31,6 @@ public class ToolBucketProtect extends Tool {
     public void register() {
     }
 
-    public static void registerCommand(CommandDispatcher<FabricClientCommandSource> dispatcher, CommandRegistryAccess registryAccess) {
-        dispatcher.register(ClientCommandManager.literal("tbucket_protect").executes(ctx -> toggleCommand()));
-    }
-
     private static int toggleCommand() {
         INSTANCE.toggleTool(MinecraftClient.getInstance());
         return Command.SINGLE_SUCCESS;

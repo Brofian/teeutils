@@ -48,42 +48,30 @@ public class ToolDimensionalVolume extends Tool {
         enabledMenu = pm.addEntry("Enabled", () -> {
             toggleTool(MinecraftClient.getInstance());
         });
-        pm.addEntry("Set for current dimension", () -> {}, false);
-        pm.addEntry("Reset for current dimension", () -> {}, false);
+        pm.addEntry("Set for current dimension", ToolDimensionalVolume::setCurrentCommand, false);
+        pm.addEntry("Reset for current dimension", ToolDimensionalVolume::resetCurrentCommand, false);
     }
 
-    public static void registerCommand(CommandDispatcher<FabricClientCommandSource> dispatcher, CommandRegistryAccess registryAccess) {
-        dispatcher.register(literal("tdimensional_volume")
-                .then(literal("toggle").executes(ctx -> toggleCommand()))
-                .then(literal("set").executes(ToolDimensionalVolume::setCurrentCommand))
-                .then(literal("reset").executes(ToolDimensionalVolume::resetCurrentCommand)));
-    }
-
-    private static int toggleCommand() {
-        INSTANCE.toggleTool(MinecraftClient.getInstance());
-        return Command.SINGLE_SUCCESS;
-    }
-
-    private static int resetCurrentCommand(CommandContext<FabricClientCommandSource> ctx) {
-        String world = ctx.getSource().getWorld().getRegistryKey().getValue().toString();
+    private static void resetCurrentCommand() {
+        MinecraftClient client = MinecraftClient.getInstance();
+        String world = client.world.getRegistryKey().getValue().toString();
         config.remove(world);
         saveConfig();
         Text feedback = Text.translatable("commands.dimensional_volume.reset.success");
-        ctx.getSource().sendFeedback(feedback);
-        return Command.SINGLE_SUCCESS;
+        client.player.sendMessage(feedback, true);
     }
 
-    private static int setCurrentCommand(CommandContext<FabricClientCommandSource> ctx) {
+    private static void setCurrentCommand() {
+        MinecraftClient client = MinecraftClient.getInstance();
         HashMap<String, Float> volumes = new HashMap<>();
         for (SoundCategory cat: SoundCategory.values()) {
-            volumes.put(cat.getName(), ctx.getSource().getClient().options.getSoundVolume(cat));
+            volumes.put(cat.getName(), client.options.getSoundVolume(cat));
         }
-        String world = ctx.getSource().getWorld().getRegistryKey().getValue().toString();
+        String world = client.world.getRegistryKey().getValue().toString();
         config.put(world, volumes);
         saveConfig();
         Text feedback = Text.translatable("commands.dimensional_volume.set.success");
-        ctx.getSource().sendFeedback(feedback);
-        return Command.SINGLE_SUCCESS;
+        client.player.sendMessage(feedback, true);
     }
 
 
