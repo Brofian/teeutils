@@ -1,8 +1,10 @@
 package de.teawork.teeutils.gui.part;
 
+import de.teawork.teeutils.gui.GuiMenu;
 import de.teawork.teeutils.gui.RenderUtils;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.math.MatrixStack;
 
 import java.util.ArrayList;
@@ -24,6 +26,10 @@ public class PartMenu extends BasePart{
     public final int COLOR_BORDER_MENU = 0xdd318794;
 
     public int width;
+
+    public String description;
+
+    public GuiMenu screen;
 
     public PartMenu(int x, int y, String name, boolean active, PartMenu parent) {
         super(x, y);
@@ -62,8 +68,9 @@ public class PartMenu extends BasePart{
         return entries.get(selected_part);
     }
 
-    public PartMenuEntry addEntry(String text, ICallable trigger, boolean isToggle) {
-        PartMenuEntry me = new PartMenuEntry(this, this.x, this.y + this.yo, text, trigger, isToggle);
+    public PartMenuEntry addEntry(String text, String description, ICallable trigger, boolean isToggle) {
+        PartMenuEntry me = new PartMenuEntry(this, this.x, this.y + this.yo, text, trigger, isToggle, description);
+        me.screen = screen;
         this.entries.add(me);
         this.yo += MinecraftClient.getInstance().textRenderer.fontHeight + 10;
         int w = MinecraftClient.getInstance().textRenderer.getWidth(text);
@@ -74,13 +81,15 @@ public class PartMenu extends BasePart{
         return me;
     }
 
-    public PartMenuEntry addEntry(String text, ICallable trigger) {
-        return addEntry(text, trigger, true);
+    public PartMenuEntry addEntry(String text, String description, ICallable trigger) {
+        return addEntry(text, description, trigger, true);
     }
 
-    public PartMenu addMenuEntry(String name) {
+    public PartMenu addMenuEntry(String name, String description) {
         TextRenderer tr = MinecraftClient.getInstance().textRenderer;
         PartMenu me = new PartMenu(this.x + 10 + width, this.y + this.yo, name, false, this);
+        me.description = description;
+        me.screen = screen;
         this.yo += MinecraftClient.getInstance().textRenderer.fontHeight + 10;
         this.entries.add(me);
         int w = tr.getWidth(name);
@@ -112,6 +121,9 @@ public class PartMenu extends BasePart{
             RenderUtils.drawRect(px, this.y, parent.width + 8, height, COLOR_MENU);
             RenderUtils.drawOutline(px, this.y, parent.width + 8, height, 1, bc);
             RenderUtils.renderText(px+4, this.y+4, 0xFFFFFFFF, this.name, stack);
+            if (this.selected && screen.activeMenu != this) {
+                RenderUtils.renderTextCenter(screen.width/2, screen.height - tr.fontHeight - 40, 0xFFFFFFFF, description, stack);
+            }
         }
         if (this.selected || parent == null) {
             for (BasePart e: this.entries) {

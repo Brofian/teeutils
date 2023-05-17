@@ -15,8 +15,13 @@ public class ToolBottleProtect extends Tool {
     }
 
     @Override
+    public String getDescription() {
+        return "Prevents you from dropping bottles while filling them.";
+    }
+
+    @Override
     public void addConfigPart(PartMenu menu) {
-        enabledMenu = menu.addEntry("Bottle Protect", () -> {
+        enabledMenu = menu.addEntry("Bottle Protect", getDescription(), () -> {
             toggleTool(MinecraftClient.getInstance());
         });
     }

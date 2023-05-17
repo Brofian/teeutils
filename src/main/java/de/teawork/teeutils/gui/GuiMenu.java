@@ -18,10 +18,11 @@ public class GuiMenu extends Screen {
 
     private final PartMenu menu = new PartMenu(5, 5, "", true, null);
 
-    private PartMenu activeMenu;
+    public PartMenu activeMenu;
 
     public GuiMenu() {
         super(ScreenTexts.EMPTY);
+        menu.screen = this;
         activeMenu = menu;
         for (Tool tool: ToolManager.INSTANCE.tools) {
             tool.addConfigPart(menu);

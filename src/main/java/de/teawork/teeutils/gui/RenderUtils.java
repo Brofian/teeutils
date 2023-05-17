@@ -61,5 +61,18 @@ public class RenderUtils {
     public static void renderText(int x, int y, int color, String text, MatrixStack matrixStack) {
         TextRenderer renderer = MinecraftClient.getInstance().textRenderer;
         renderer.draw(matrixStack, text, x, y, color);
+
+    }
+
+    public static void renderTextRight(int x, int y, int color, String text, MatrixStack matrixStack) {
+        TextRenderer renderer = MinecraftClient.getInstance().textRenderer;
+        int width = renderer.getWidth(text);
+        renderText(x-width, y, color, text, matrixStack);
+    }
+
+    public static void renderTextCenter(int x, int y, int color, String text, MatrixStack matrixStack) {
+        TextRenderer renderer = MinecraftClient.getInstance().textRenderer;
+        int width = renderer.getWidth(text);
+        renderText(x-(width/2), y, color, text, matrixStack);
     }
 }

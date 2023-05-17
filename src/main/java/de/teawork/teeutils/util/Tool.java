@@ -11,6 +11,8 @@ public abstract class Tool {
 
     public abstract String getName();
 
+    public abstract String getDescription();
+
     public KeyBinding toggleBind = null;
 
     public boolean isEnabled = false;

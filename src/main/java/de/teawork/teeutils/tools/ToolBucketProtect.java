@@ -21,8 +21,13 @@ public class ToolBucketProtect extends Tool {
     }
 
     @Override
+    public String getDescription() {
+        return "Prevents you from dropping buckets while filling them.";
+    }
+
+    @Override
     public void addConfigPart(PartMenu menu) {
-        enabledMenu = menu.addEntry("Bucket Protect", () -> {
+        enabledMenu = menu.addEntry("Bucket Protect", getDescription(), () -> {
             toggleTool(MinecraftClient.getInstance());
         });
     }

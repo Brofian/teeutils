@@ -33,8 +33,13 @@ public class ToolRepair extends Tool {
     }
 
     @Override
+    public String getDescription() {
+        return "Automates swapping broken mending tools to offhand and auto attacks mobs.";
+    }
+
+    @Override
     public void addConfigPart(PartMenu menu) {
-        enabledMenu = menu.addEntry("Repair Automation", () -> {
+        enabledMenu = menu.addEntry("Repair Automation", getDescription(), () -> {
             toggleTool(MinecraftClient.getInstance());
         });
     }

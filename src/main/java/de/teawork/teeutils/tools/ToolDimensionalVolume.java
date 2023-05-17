@@ -43,13 +43,18 @@ public class ToolDimensionalVolume extends Tool {
     }
 
     @Override
+    public String getDescription() {
+        return "Allows you to specify volume settings on a per dimension basis.";
+    }
+
+    @Override
     public void addConfigPart(PartMenu menu) {
-        PartMenu pm = menu.addMenuEntry("Dimensional Volume");
-        enabledMenu = pm.addEntry("Enabled", () -> {
+        PartMenu pm = menu.addMenuEntry("Dimensional Volume", getDescription());
+        enabledMenu = pm.addEntry("Enabled", getDescription(), () -> {
             toggleTool(MinecraftClient.getInstance());
         });
-        pm.addEntry("Set for current dimension", ToolDimensionalVolume::setCurrentCommand, false);
-        pm.addEntry("Reset for current dimension", ToolDimensionalVolume::resetCurrentCommand, false);
+        pm.addEntry("Set for current dimension", getDescription(), ToolDimensionalVolume::setCurrentCommand, false);
+        pm.addEntry("Reset for current dimension", getDescription(), ToolDimensionalVolume::resetCurrentCommand, false);
     }
 
     private static void resetCurrentCommand() {

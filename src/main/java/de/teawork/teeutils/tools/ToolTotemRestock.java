@@ -1,16 +1,9 @@
 package de.teawork.teeutils.tools;
 
-import com.mojang.brigadier.Command;
-import com.mojang.brigadier.CommandDispatcher;
 import de.teawork.teeutils.gui.part.PartMenu;
 import de.teawork.teeutils.util.Tool;
-import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
-import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.command.CommandRegistryAccess;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.screen.ScreenHandler;
@@ -25,7 +18,7 @@ public class ToolTotemRestock extends Tool {
 
     @Override
     public void addConfigPart(PartMenu menu) {
-        enabledMenu = menu.addEntry("Totem Restock", () -> {
+        enabledMenu = menu.addEntry("Totem Restock", getDescription(), () -> {
             toggleTool(MinecraftClient.getInstance());
         });
     }
@@ -33,6 +26,11 @@ public class ToolTotemRestock extends Tool {
     @Override
     public String getName() {
         return "Totem Restock";
+    }
+
+    @Override
+    public String getDescription() {
+        return "Automatically restocks a new totem to your offhand.";
     }
 
     @Override
