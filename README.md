@@ -22,3 +22,7 @@ Will prevent you from filling new buckets when there is no space in your invento
 ## Bottle Protect
 
 Will prevent you from filling new bottles when there is no space in your inventory for them and you would usually throw them out.
+
+## Totem Restock
+
+Automatically restocks a new totem to your offhand.
