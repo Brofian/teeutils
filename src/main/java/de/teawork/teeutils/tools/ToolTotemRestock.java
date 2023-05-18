@@ -50,6 +50,7 @@ public class ToolTotemRestock extends Tool {
 
     private void onTick(MinecraftClient client) {
         if (!this.isEnabled) return;
+        if (ToolRepair.INSTANCE.isEnabled) return;
         if (client.player == null || client.interactionManager == null) return;
         ItemStack offhand = client.player.getOffHandStack();
         // noting to do if already a totem in offhand
