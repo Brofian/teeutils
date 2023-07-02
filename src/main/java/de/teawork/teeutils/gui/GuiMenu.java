@@ -5,6 +5,7 @@ import de.teawork.teeutils.gui.part.PartMenu;
 import de.teawork.teeutils.gui.part.PartMenuEntry;
 import de.teawork.teeutils.util.Tool;
 import de.teawork.teeutils.util.ToolManager;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.screen.ScreenTexts;
@@ -82,9 +83,9 @@ public class GuiMenu extends Screen {
     }
 
     @Override
-    public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
+    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         this.drawBackground(mouseX, mouseY);
-        this.menu.render(matrices, delta);
+        this.menu.render(context, delta);
     }
 
     protected void drawBackground(int mouseX, int mouseY) {

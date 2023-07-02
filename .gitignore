@@ -40,3 +40,4 @@ replay_*.log
 *.jfr
 comp_output/
 .github/
+remappedSrc/

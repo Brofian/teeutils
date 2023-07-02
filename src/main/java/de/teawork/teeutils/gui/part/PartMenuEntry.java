@@ -4,8 +4,7 @@ import de.teawork.teeutils.gui.GuiMenu;
 import de.teawork.teeutils.gui.RenderUtils;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.gui.DrawContext;
 
 public class PartMenuEntry extends BasePart{
 
@@ -43,7 +42,7 @@ public class PartMenuEntry extends BasePart{
     }
 
     @Override
-    public void render(MatrixStack stack, float delta) {
+    public void render(DrawContext context, float delta) {
         if (deltaCooldown > 0 && !isToggle) {
             deltaCooldown -= delta;
             if (deltaCooldown <= 0) {
@@ -55,9 +54,9 @@ public class PartMenuEntry extends BasePart{
         int bc = this.selected?COLOR_BORDER_SELECTED:(this.active?COLOR_BORDER_ACTIVE:COLOR_BORDER_INACTIVE);
         RenderUtils.drawRect(this.x, this.y, parent.width + 8, height, this.active?COLOR_ACTIVE:COLOR_INACTIVE);
         RenderUtils.drawOutline(this.x, this.y, parent.width + 8, height, 1, bc);
-        RenderUtils.renderText(this.x+4, this.y+4, 0xFFFFFFFF, this.text, stack);
+        RenderUtils.renderText(this.x+4, this.y+4, 0xFFFFFFFF, this.text, context);
         if (selected) {
-            RenderUtils.renderTextCenter(screen.width/2, screen.height - tr.fontHeight - 40, 0xFFFFFFFF, description, stack);
+            RenderUtils.renderTextCenter(screen.width/2, screen.height - tr.fontHeight - 40, 0xFFFFFFFF, description, context);
         }
     }
 }

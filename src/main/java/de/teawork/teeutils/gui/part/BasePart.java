@@ -1,5 +1,6 @@
 package de.teawork.teeutils.gui.part;
 
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.util.math.MatrixStack;
 
 public abstract class BasePart {
@@ -22,5 +23,5 @@ public abstract class BasePart {
         this.y = y;
     }
 
-    public abstract void render(MatrixStack stack, float delta);
+    public abstract void render(DrawContext context, float delta);
 }

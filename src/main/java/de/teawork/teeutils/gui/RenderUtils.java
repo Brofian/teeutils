@@ -4,6 +4,7 @@ import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.render.*;
 import net.minecraft.client.util.math.MatrixStack;
 
@@ -58,21 +59,21 @@ public class RenderUtils {
         drawRect(x + borderWidth        , y + height - borderWidth, width - 2 * borderWidth, borderWidth, colorBorder, zLevel); // bottom edge
     }
 
-    public static void renderText(int x, int y, int color, String text, MatrixStack matrixStack) {
+    public static void renderText(int x, int y, int color, String text, DrawContext context) {
         TextRenderer renderer = MinecraftClient.getInstance().textRenderer;
-        renderer.draw(matrixStack, text, x, y, color);
+        context.drawText(renderer, text, x, y, color, false);
 
     }
 
-    public static void renderTextRight(int x, int y, int color, String text, MatrixStack matrixStack) {
+    public static void renderTextRight(int x, int y, int color, String text, DrawContext context) {
         TextRenderer renderer = MinecraftClient.getInstance().textRenderer;
         int width = renderer.getWidth(text);
-        renderText(x-width, y, color, text, matrixStack);
+        renderText(x-width, y, color, text, context);
     }
 
-    public static void renderTextCenter(int x, int y, int color, String text, MatrixStack matrixStack) {
+    public static void renderTextCenter(int x, int y, int color, String text, DrawContext context) {
         TextRenderer renderer = MinecraftClient.getInstance().textRenderer;
         int width = renderer.getWidth(text);
-        renderText(x-(width/2), y, color, text, matrixStack);
+        renderText(x-(width/2), y, color, text, context);
     }
 }
