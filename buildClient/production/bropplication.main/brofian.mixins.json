@@ -1,13 +1,14 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "de.teawork.teeutils.mixins",
+  "package": "de.brofian.bropplication.mixins",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
   ],
+  "server": [
+    "ServerPlayNetworkHandlerMixin"
+  ],
   "client": [
-    "MixinMinecraftClient",
-    "MixinClientPlayerInteractionManager"
   ],
   "injectors": {
     "defaultRequire": 1

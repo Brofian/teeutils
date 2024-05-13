@@ -1,0 +1,4 @@
+{
+  "commands.dimensional_volume.set.success": "§7Dimensional Volume: §rSuccessfully stored current volume settings for this dimension",
+  "commands.dimensional_volume.reset.success": "§7Dimensional Volume: §rSuccessfully removed the current dimension volume settings"
+}
